@@ -1,0 +1,17 @@
+global:
+  slack_api_url: 'https://hooks.slack.com/services/XXX/XXX/XXX'
+  resolve_timeout: '1m'
+
+route:
+  group_by: ['alertname', 'job', 'name']
+  group_interval: 10s
+  group_wait: 10s
+  receiver: 'slack'
+  repeat_interval: 1m
+
+receivers:
+- name: 'slack'
+  slack_configs:
+  - channel: '#channel'
+    icon_emoji: ':construction_worker:'
+    send_resolved: true

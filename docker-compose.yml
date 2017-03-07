@@ -1,0 +1,38 @@
+version: "3"
+
+networks:
+  monitoring:
+
+services:
+  alertmanager:
+    image: prom/alertmanager:v0.5.1
+    networks:
+    - monitoring
+    ports:
+    - "9093:9093"
+    command: -config.file=/etc/alertmanager/alertmanager.yml
+    volumes:
+    - "./alertmanager:/etc/alertmanager"
+
+  prometheus:
+    image: prom/prometheus:v1.5.2
+    ports:
+    - "9090:9090"
+    networks:
+    - monitoring
+    command:
+    - "-config.file=/etc/prometheus/prometheus.yml"
+    - "-storage.local.path=/prometheus"
+    - "-alertmanager.url=http://alertmanager:9093"
+    volumes:
+    - "./prometheus:/etc/prometheus"
+
+  grafana:
+    image: grafana/grafana:4.1.2
+    ports:
+      - "3000:3000"
+    networks:
+      - monitoring
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: prometheus
+      PROMETHEUS_ENDPOINT: http://prometheus:9090

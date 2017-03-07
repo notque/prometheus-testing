@@ -1,0 +1,8 @@
+ALERT PrometheusUp
+  IF up == 1
+  FOR 10s
+  LABELS {severity="test", team="slack"}
+  ANNOTATIONS {
+    description="Prometheus is up and running, this is just a test alert",
+    summary="Prometheus is up"
+}

@@ -13,8 +13,9 @@ if you need [http://localhost:3000](http://localhost:3000) for Grafana.
 
 ## Alerts
 
-There's already one alert predefined that fires every minute.
-Perfect for development.
+There's already **one alert predefined** that fires every minute.
+Perfect for development. If you need more alerts, just add them to `prometheus/test.rules` 
+and restart the containers with `docker-compose up`.
 
 Just edit `alertmanager/alertmanager.yml` to your needs and alerts will be send to you.
 Slack is already predefined, you just need to replace the `slack_api_url` with one of yours.

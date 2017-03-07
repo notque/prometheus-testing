@@ -7,8 +7,9 @@ Just clone this repository, change into it and run
 
 	docker-compose up
 
-Visit http://localhost:9090 for Prometheus, http://localhost:9093 for
-AlertManager or if you need http://localhost:3000 for Grafana.
+Visit [http://localhost:9090](http://localhost:9090) for Prometheus,
+[http://localhost:9093](http://localhost:9093) for AlertManager or
+if you need [http://localhost:3000](http://localhost:3000) for Grafana.
 
 ## Alerts
 
@@ -22,7 +23,8 @@ More examples may be added in the future.
 
 ## Grafana
 
-I've set a default password. Visit http://localhost:3000 and you can login with
+I've set a default password. Visit [http://localhost:3000](http://localhost:3000)
+and you can login with
 
 	admin - prometheus
 
